@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#centralWidget
+{
+background: #0f0f1d;
+}</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="leftMargin">
+     <number>5</number>
+    </property>
+    <property name="topMargin">
+     <number>5</number>
+    </property>
+    <property name="rightMargin">
+     <number>5</number>
+    </property>
+    <property name="bottomMargin">
+     <number>5</number>
+    </property>
+    <item>
+     <widget class="QTextEdit" name="mainText">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit
+{
+border: none;
+
+color: #f6f7eb;
+background-color: #0f0f1d;
+
+selection-color: #0f0f1d;
+selection-background-color: #3f88c5;
+}</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="argumentInput">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>99999</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionSwap_row_column"/>
+    <addaction name="actionReverse_text"/>
+    <addaction name="actionTable_format"/>
+    <addaction name="actionConvert_alphabet"/>
+    <addaction name="actionFilter_characters"/>
+    <addaction name="actionStrip_whitespace"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_spaces"/>
+    <addaction name="actionClone_whitespace"/>
+    <addaction name="actionClone_punctuation"/>
+    <addaction name="separator"/>
+    <addaction name="actionDecrypt"/>
+    <addaction name="actionEncrypt"/>
+    <addaction name="separator"/>
+    <addaction name="actionAnalyze"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuOptions"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open...</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save...</string>
+   </property>
+  </action>
+  <action name="actionSwap_row_column">
+   <property name="text">
+    <string>Swap row/column</string>
+   </property>
+  </action>
+  <action name="actionClone_whitespace">
+   <property name="text">
+    <string>Clone whitespace</string>
+   </property>
+  </action>
+  <action name="actionClone_punctuation">
+   <property name="text">
+    <string>Clone punctuation</string>
+   </property>
+  </action>
+  <action name="actionReverse_text">
+   <property name="text">
+    <string>Reverse text</string>
+   </property>
+  </action>
+  <action name="actionTable_format">
+   <property name="text">
+    <string>Table format</string>
+   </property>
+  </action>
+  <action name="actionAdd_spaces">
+   <property name="text">
+    <string>Add spaces</string>
+   </property>
+  </action>
+  <action name="actionConvert_alphabet">
+   <property name="text">
+    <string>Convert alphabet</string>
+   </property>
+  </action>
+  <action name="actionFilter_characters">
+   <property name="text">
+    <string>Filter characters</string>
+   </property>
+  </action>
+  <action name="actionDecrypt">
+   <property name="text">
+    <string>Decrypt...</string>
+   </property>
+  </action>
+  <action name="actionEncrypt">
+   <property name="text">
+    <string>Encrypt...</string>
+   </property>
+  </action>
+  <action name="actionAnalyze">
+   <property name="text">
+    <string>Analyze</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences...</string>
+   </property>
+  </action>
+  <action name="actionStrip_whitespace">
+   <property name="text">
+    <string>Strip whitespace</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
