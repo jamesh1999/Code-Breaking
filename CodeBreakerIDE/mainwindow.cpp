@@ -6,6 +6,7 @@
 #include "SimpleSubstitution.h"
 #include <iostream>
 #include <QTextCodec>
+#include <QSizePolicy>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,6 +20,15 @@ MainWindow::MainWindow(QWidget *parent) :
     statusProgress = new QProgressBar;
     statusProgress->setFixedWidth(200);
     ui->statusBar->addPermanentWidget(statusProgress);
+    //Create tooltip widget
+    tooltip = new QWidget(ui->centralWidget);
+    tooltip->setFixedSize(QSize(200,100));
+    tooltip->move(300, 300);
+    tooltip->raise();
+    tooltip->setStyleSheet("background-color: #fff;");
+
+    Cipher::SimpleSubstitution* cipher = new Cipher::SimpleSubstitution(tooltip);
+	connect(dynamic_cast<QObject*>(cipher->getWorker()), SIGNAL(setPlainText(QString)), this, SLOT(DecryptionResult(QString)));
 
     InitFormats();
 
@@ -42,14 +52,11 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete statusProgress;
     delete argumentEscape;
 }
 
-/*
- * Shows input bar
- * func - Slot to call on argument entered
- */
+//Shows input bar
+//func - Slot to call on argument entered
 void MainWindow::GetArgumentInput(void (MainWindow::*func)(QString))
 {
     disconnect(argumentConnection);
@@ -155,4 +162,23 @@ void MainWindow::on_actionReverse_text_triggered()
     ClearFormatting();
     textCursor = QTextCursor(ui->mainText->textCursor());
     ReverseText(&textCursor);
+}
+
+void MainWindow::on_actionDecrypt_triggered()
+{
+	for(auto w : tooltip->findChildren<QWidget*>())
+	{
+		Cipher::ICipher* cipher = dynamic_cast<Cipher::ICipher*>(w);
+
+		if (cipher != nullptr)
+		{
+			cipher->start(ui->mainText->toPlainText());
+			break;
+		}
+	}
+}
+
+void MainWindow::DecryptionResult(QString txt)
+{
+	ui->mainText->append(txt);
 }

@@ -34,7 +34,7 @@ namespace Cipher
     class SimpleSubstitution : public QWidget, public ICipher
     {
         Q_OBJECT
-        Q_INTERFACES(Cipher::ICipher)
+        //Q_INTERFACES(Cipher::ICipher)
 
     public:
         explicit SimpleSubstitution(QWidget *parent = 0);

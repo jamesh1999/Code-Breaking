@@ -7,6 +7,8 @@
 #include <QString>
 #include <QMetaObject>
 #include <QShortcut>
+#include <vector>
+#include "Cipher.h"
 
 namespace Ui {
 class MainWindow;
@@ -46,11 +48,17 @@ private slots:
 
     void on_actionReverse_text_triggered();
 
+	void on_actionDecrypt_triggered();
+
+public slots:
+	void DecryptionResult(QString);
+
 private:
 
     //UI
     Ui::MainWindow *ui;
     QProgressBar* statusProgress;
+    QWidget* tooltip;
 
     //Argument bar
     QMetaObject::Connection argumentConnection;
